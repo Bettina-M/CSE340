@@ -13,7 +13,7 @@ const static = require("./routes/static")
 
 //Index Route
 app.get("/", function(req, res){
-  res.render("Index",{title:"Home"})
+  res.render("index",{title:"Home"})
 })
 
 
