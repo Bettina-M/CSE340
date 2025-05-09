@@ -1,6 +1,196 @@
-/******* Change Box Model ***************/
+/******* Change Box Model ***************
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
+/*fonts and colors*/
+:root{
+  --primary-color: #1B1B1E;
+  --secondary-color: #023e8a;
+  --header-font: 'Montserrat';
+  --body-font : 'Open Sans';
+}
+
+body{
+  background-image: url(/images/site/checkerboard.jpg);
+  z-index: -1000;
+}
+
+nav{
+  background-color: var(--primary-color);
+}
+
+#wrapper{
+  background-color: white;
+  border: solid var(--secondary-color) 10px;
+  padding: 20px;
+  margin: auto 100px;
+  border-radius: 20px;
+}
+
+/*large screen view*/
+#top-header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.siteName a{
+  font-family: var(--header-font);
+  color:var(--primary-color);
+}
+
+#tools a{
+  font-family: var(--body-font);
+  color:var(--primary-color);
+  font-size: larger;
+}
+a{
+  text-decoration: none;
+  
+}
+a:hover {
+  transform: scale(2);
+  transition: transform 0.3s ease-in-out;
+}
+.siteName{
+  font-family: var(--header-font);
+  font-size: 2em;
+  font-weight: bold;
+  
+}
+nav ul li{
+  list-style-type: none;
+  margin: 0 auto;
+}
+
+nav ul{
+  display: flex;
+  align-content: space-between;
+  font-size: 1.1em;
+  font-weight: bold;
+  font-family: var(--header-font);
+  color: white;
+  padding: 15px;
+ 
+}
+
+#dmc-dolerean{
+  background-image: url(/images/vehicles/delorean.jpg);
+  background-position: center;
+  z-index: 1000;
+  background-repeat: no-repeat;
+  margin: 50px;
+}
+
+
+#dmc-dolerean button{
+  background-color: var(--secondary-color);
+  padding: 10px;
+  width: 120px;
+  color: white;
+  font-family: var(--body-font);
+  font-weight: bold;
+}
+
+#dolorean-title{
+  font-family: var(--header-font);
+}
+
+#dmc-content{
+  color:var(--secondary-color);
+  font-size: larger;
+  line-height: 1.2em;
+ 
+}
+
+#home-divider{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+#upgrades{
+  display:grid;
+  grid-template-columns: 0.3fr 0.3fr;
+  column-gap: 15px;
+}
+
+.upgrade-item img{
+  background-color: var(--secondary-color);
+  padding: 8px 40px 8px 40px;
+  height: 100px;
+  width: 150px;
+}
+
+.upgrade-item a{
+  font-family: var(--body-font);
+  color:var(--primary-color);
+  text-align: center;
+  text-decoration: underline;
+}
+
+#reviews h3, #upgrades h3{
+  font-family: var(--header-font);
+} 
+#reviews li{
+  text-align: left;
+  font-family: var(--body-font);
+  line-height: 3em;
+}
+
+/*small screen view*/
+
+@media screen and (max-width: 640px){
+  body{
+    background-image:none;
+  }
+
+  .page{
+    display:flex;
+    flex-direction: column;
+    
+  }
+
+  #reviews{
+    margin-bottom: 20px;
+  }
+  #home-divider{
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 100%;
+    
+  }
+
+  #upgrades{
+    margin: 0 auto;
+    gap: 50px;
+  }
+
+  .upgrade-item img{
+    width: 100px;
+    padding: 20px;
+   
+  }
+
+  #dmc-dolerean{
+    height:200px;
+    background-size: contain;
+    
+  }
+
+  #dmc-content{
+  font-size: smaller;
+  margin: auto -55px;
+  font-weight: 900;
+  }
+
+#dmc-dolerean button{
+  width: 120px;
+
+}
+}
+
