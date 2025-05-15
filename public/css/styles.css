@@ -205,7 +205,7 @@ nav ul{
   border:none;
   padding:5px;
   margin: 0;
-  border-radius:none;
+  border-radius:0px;
 }
 
 #dolorean-title{
