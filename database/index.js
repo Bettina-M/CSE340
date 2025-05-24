@@ -1,4 +1,4 @@
-const {Pool} = require("pg")
+const {Pool} = require('pg')
 require("dotenv").config()
 /* Connection Pool
 SSL object needed for local testing of app
