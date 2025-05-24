@@ -83,6 +83,10 @@ nav ul{
  
 }
 
+nav ul a{
+  color:white;
+}
+
 #dmc-dolerean{
   background-image: url(/images/vehicles/delorean.jpg);
   background-position: center;
@@ -149,6 +153,29 @@ nav ul{
   line-height: 3em;
 }
 
+/*vehicle detail page*/
+#inv-display h2:hover{
+  scale:0.9;
+}
+
+#inv-display h2::after{
+  font-size: smaller;
+}
+
+#inv-display{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items:flex-end ;
+  gap: 20px;
+  text-align: center;
+  font-family: var(--body-font);
+  list-style-type: none;
+  border-style: none;
+  color: var(--primary-color);
+}
+
+
 /*small screen view*/
 
 @media only screen and (max-width: 640px){
@@ -160,6 +187,10 @@ nav ul{
     display:flex;
     flex-direction: column;
     
+  }
+
+  nav ul{
+    font-size: smaller;
   }
 
   #reviews{
@@ -211,5 +242,23 @@ nav ul{
 #dolorean-title{
   display: none;
 }
+/*vehicle detail page*/
+
+.vehicleCard{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: var(--body-font);
+}
+
+/*classification page*/
+#inv-display li{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  
+  
+}
+
 }
 
