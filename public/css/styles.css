@@ -175,6 +175,92 @@ nav ul a{
   color: var(--primary-color);
 }
 
+/*login page*/
+ #login-form{
+  margin: 0 auto;
+  max-width: 50%;
+  border-radius:10px;
+  padding: 10px;
+  border: solid #354f52;
+  box-shadow: 2px 2px #354f52;
+  
+ }
+ #login-form input, label{
+  padding: 5px;
+  width: 50%;
+  margin: 10px 0px 10px 50px;
+  
+ }
+
+ #login-form button{
+  box-shadow: 2px 2px #354f52;
+  width: 10%;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 50px;
+ }
+
+ #login-form label, p, button{
+  font-family: var(--body-font);
+  color:#354f52;
+  font-weight: bold;
+}
+
+#login-form input{
+  box-shadow: 2px 2px #354f52;
+}
+
+#login-form p{
+  margin-left: 20px;
+}
+
+/*Register page*/
+#register-form input{
+  width: 50%;
+  padding: 12px;
+  margin: 10px auto;
+  border: 2px solid #354f52;
+  border-radius: 5px;
+  
+}
+
+#register-form input:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.94);
+}
+
+#register-form label{
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  padding: 10px;
+  margin-left: 5px;
+  margin-top: 10px;
+  color:#354f52;
+  font-weight: bold;
+}
+
+#registerbtn{
+  margin-top: 30px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  width: 180px;
+  display: block;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+#registerbtn:hover{
+  background-color: rgb(155, 152, 152);
+  transform: scale(0.9);
+}
+
+#register-form fieldset{
+  border: 2px solid #354f52;
+  border-radius: 5px;
+}
+
+
 
 /*small screen view*/
 
@@ -258,6 +344,10 @@ nav ul a{
   margin: 0 auto;
   
   
+}
+/*login page*/
+#login-form button{
+  width:50%;
 }
 
 }

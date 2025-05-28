@@ -1,0 +1,12 @@
+<h1><%- title || 'Login' %></h1>
+<%- messages() %>
+
+<form id="login-form" method="post" action="#">
+    <p>*Please fill all fields</p>
+    <label for="account_email">Email</label><br>
+    <input type="email" name="account_email" id="account_email" required placeholder="Enter a valid email address"><br>
+    <label for="account_password">Password</label><br>
+    <input type="password" name="account_password" id="account_password" required><br>
+    <button type="submit" id="loginbtn">Login</button><br>
+    <p>No account? <a href="../account/registration">Sign up</a></p>
+</form>
