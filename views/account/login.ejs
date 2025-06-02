@@ -1,12 +1,12 @@
 <h1><%- title || 'Login' %></h1>
 <%- messages() %>
 
-<form id="login-form" method="post" action="#">
+<form id="login-form" method="post" action="/account/login">
     <p>*Please fill all fields</p>
     <label for="account_email">Email</label><br>
-    <input type="email" name="account_email" id="account_email" required placeholder="Enter a valid email address"><br>
+    <input type="email" name="account_email" id="account_email" required placeholder="Enter a valid email address" value="<%= locals.account_email %>"><br>
     <label for="account_password">Password</label><br>
-    <input type="password" name="account_password" id="account_password" required><br>
+    <input type="password" name="account_password" id="account_password" required value="<%= locals.account_password %>"><br>
     <button type="submit" id="loginbtn">Login</button><br>
     <p>No account? <a href="../account/registration">Sign up</a></p>
 </form>

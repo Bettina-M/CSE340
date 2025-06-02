@@ -1,4 +1,5 @@
 const utilities = require("./index")
+const accountModel = require("../models/account-model")
 
 /*body tool allows the validator to access the body object
 which has the data sent via HTTP request
@@ -34,7 +35,13 @@ validate.registrationRules = () =>{
         .notEmpty()
         .isEmail()
         .normalizeEmail()// makes the email all lowercase
-        .withMessage("A valid email is required"),
+        .withMessage("A valid email is required")
+        .custom(async (account_email) =>{
+            const emailExists = await accountModel.checkExistingEmail(account_email)
+            if (emailExists){
+                throw new Error("Email exists. Please log in or use different email")
+            }
+        }),
 
         // password is required and must be strong password
         body("account_password")

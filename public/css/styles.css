@@ -215,7 +215,7 @@ nav ul a{
 }
 
 /*Register page*/
-#register-form input{
+#register-form input,#addClass-form input, #addInv-form input {
   width: 50%;
   padding: 12px;
   margin: 10px auto;
@@ -228,7 +228,7 @@ nav ul a{
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.94);
 }
 
-#register-form label{
+#register-form label,#addClass-form label, #addInv-form label {
   font-family: var(--body-font);
   font-size: 1.1rem;
   padding: 10px;
@@ -260,7 +260,39 @@ nav ul a{
   border-radius: 5px;
 }
 
+/*management view*/
+#management-view a{
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: larger;
+  display: block;
+  line-height: 2rem;
+  color: var(--primary-color);
+  
+}
 
+#management-view a:hover{
+  transform: scale(0.9);
+}
+
+/*add classification view*/
+
+#addClass-form button{
+padding: 10px;
+
+}
+
+/*add Inventory form*/
+#addInv-form button{
+  padding: 10px;
+  width: 150px;
+}
+#class-selection{
+  padding: 10px;
+  color: var(--primary-color);
+  font-family: var(--body-font);
+  font-size: larger;
+}
 
 /*small screen view*/
 
