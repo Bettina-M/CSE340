@@ -28,11 +28,15 @@ router.post("/add-classification",
 
 )
 
-
-
-
 router.get('/addInventory', invController.buildAddInventory);
+
 router.post('/addInventory', validate.inventoryRules(), validate.checkInventoryData, invController.addInventory)
+
+router.get('/getInventory/:classification_id',utilities.handleErrors(invController.getInventoryJSON))
+
+router.get('/edit/:inv_id', utilities.handleErrors(invController.editInventoryView))
+
+router.post('/update',utilities.handleErrors(invController.updateInventory))
 
 
 

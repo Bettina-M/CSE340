@@ -103,5 +103,38 @@ const checkInventoryData = async (req, res, next) => {
   next(); 
 };
 
-module.exports = {classificationRules,checkClassificationData, inventoryRules, checkInventoryData}
+/*errors will be directed back to the edit view*/
+
+const checkUpdateData = async (req, res, next) => {
+  const errors = validationResult(req);
+  
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    let classificationList = await utilities.buildClassificationList(req.body.classification_id);
+
+    const errorMessages = errors.array().map(err => err.msg);
+    req.flash('error', errorMessages);
+    
+    return res.render("inventory/edit", {
+      title: `Edit ${req.body.inv_make} ${req.body.inv_model}`,
+      nav,
+      classificationList,
+      errors: errorMessages,
+      inv_id: req.body.inv_id,
+      inv_make: req.body.inv_make,
+      inv_model: req.body.inv_model,
+      inv_year: req.body.inv_year,
+      inv_description: req.body.inv_description,
+      inv_image: req.body.inv_image,
+      inv_thumbnail: req.body.inv_thumbnail,
+      inv_price: req.body.inv_price,
+      inv_miles: req.body.inv_miles,
+      inv_color: req.body.inv_color,
+      classification_id: req.body.classification_id
+    });
+  }
+  next(); 
+};
+
+module.exports = {classificationRules,checkClassificationData, inventoryRules, checkInventoryData,checkUpdateData}
 

@@ -14,13 +14,16 @@ router.post('/registration',
     utilities.handleErrors(accountCtrl.registerAccount)
 )
 
-router.post(
-    "/login",
-    (req, res) =>{
-        res.status(200).send('login process')
-    }
-)
-
+//Process the login request
+router.post( "/login",
+    regValidate.loginRules(),
+    regValidate.checkLoginData,
+    utilities.handleErrors(accountCtrl.accountLogin)
+) 
+router.get('/', 
+    utilities.checkJWTToken,
+    utilities.checkLogin,
+    utilities.handleErrors(accountCtrl.buildAccountManagement))
 
 
 module.exports = router;
