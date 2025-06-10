@@ -204,7 +204,7 @@ async function updatePassword(req, res) {
 
   const { account_id, account_password } = req.body;
 
-  // Hash the password before storing.
+  
   let hashedPassword;
   try {
     // regular password and cost (salt is generated automatically)
