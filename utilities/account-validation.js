@@ -113,4 +113,19 @@ validate.checkLoginData = async (req, res, next) =>{
     next()
 }
 
+validate.restrictAccess= async (req, res, next)=> {
+    if(!res.locals.loggedIn){
+        req.flash("notice", "Please log in to access this page")
+        return res.redirect('account/login');
+    }
+
+    const accountType = res.locals.accountData.account_type;
+    if (accountType !== 'Employee' && accountType !== 'Admin'){
+        req.flash("notice", "You dont have permission to access this page")
+            return res.redirect('account/login')
+
+    }    
+}
+
+
 module.exports = validate

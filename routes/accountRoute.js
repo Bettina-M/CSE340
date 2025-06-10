@@ -4,6 +4,7 @@ const utilities = require('../utilities/index')
 const accountCtrl = require('../controllers/accountController')
 const regValidate = require('../utilities/account-validation')
 
+
 router.get('/login', utilities.handleErrors(accountCtrl.buildLogin))
 
 router.get('/registration', utilities.handleErrors(accountCtrl.buildRegister))
@@ -24,6 +25,14 @@ router.get('/',
     utilities.checkJWTToken,
     utilities.checkLogin,
     utilities.handleErrors(accountCtrl.buildAccountManagement))
+
+router.get('/account/update/:account_id', accountCtrl.buildUpdate);
+router.post('/account/update', accountCtrl.updateAccount);    
+
+//logout process//
+router.get("/logout", utilities.handleErrors(accountCtrl.accountLogout))
+
+
 
 
 module.exports = router;

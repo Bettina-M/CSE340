@@ -35,8 +35,19 @@ async function getAccountByEmail(account_email){
         }
     }
 
+    /*Return account data using account_id*/
+async function getAccountById(account_id){
+    try{
+        const result = await pool.query(
+            'SELECT * FROM public.account WHERE account_id = $1',
+            [account_id])
+            return result.rows[0]
+        }catch (error){
+            return new Error("No matching account found")
+        }
+    }
 
-module.exports ={registerAccount, checkExistingEmail, getAccountByEmail}
+module.exports ={registerAccount, checkExistingEmail, getAccountByEmail, getAccountById}
 
 
 

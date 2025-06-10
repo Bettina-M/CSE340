@@ -1,0 +1,29 @@
+<h1><%= title %></h1>
+
+<%- messages() %>
+
+<form id="updateForm" action="/inv/delete" method="post">
+<fieldset>
+    <legend>
+        Confirm Deletion
+    </legend>
+    
+    <label for="inv_make">Make</label><br>
+    <input type="text" name="inv_make" id="inv_make"  value="<%= locals.inv_make %>" readonly><br>
+
+    <label for="inv_model">Model</label><br>
+    <input type="text" name="inv_model" id="inv_model"  value="<%= locals.inv_model %>" readonly><br>
+
+    <label for="inv_year">Year</label><br>
+    <input type="number" name="inv_year" id="inv_year"  value="<%= locals.inv_year %>" readonly><br>
+
+    <label for="inv_price">Price</label><br>
+    <input type="number" name="inv_price" id="inv_price" step="0.01" value="<%= locals.inv_price %>" readonly><br>
+
+    <button type="submit" name="delete" value="delete" >Delete</button><br>
+
+    <p>Confirm Deletion - The delete is permanent.</p>
+   <input type="hidden" name="inv_id" value="<%= inv_id %>">
+</fieldset>
+</form>
+
