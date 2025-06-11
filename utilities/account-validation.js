@@ -113,18 +113,27 @@ validate.checkLoginData = async (req, res, next) =>{
     next()
 }
 
-validate.restrictAccess= async (req, res, next)=> {
-    if(!res.locals.loggedIn){
-        req.flash("notice", "Please log in to access this page")
-        return res.redirect('account/login');
+
+validate.checkEmployeeOrAdmin = async (req, res, next) =>{
+  const token = req.cookies.jwt;
+  if (!token) {
+    req.flash("error", "You must be logged in.");
+    return res.redirect("/account/login");
+  }
+  try {
+    const decoded = jwt.verify(token, process.env.SESSION_SECRET);
+    if (decoded.account_type === "Employee" || decoded.account_type === "Admin") {
+      res.locals.accountData = decoded;
+      next();
+    } else {
+      req.flash("error", "Access denied.");
+      return res.redirect("/account/login");
     }
-
-    const accountType = res.locals.accountData.account_type;
-    if (accountType !== 'Employee' && accountType !== 'Admin'){
-        req.flash("notice", "You dont have permission to access this page")
-            return res.redirect('account/login')
-
-    }    
+  } catch (err) {
+    req.flash("error", "Session expired. Please log in again.");
+    res.clearCookie("jwt");
+    return res.redirect("/account/login");
+  }
 }
 
 

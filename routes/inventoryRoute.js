@@ -18,7 +18,7 @@ router.get("/error", utilities.handleErrors(invController.errorTrigger))
 //management view//
 router.get("/", 
     utilities.checkJWTToken,
-    accValidate.restrictAccess,
+    accValidate.checkEmployeeOrAdmin,
     utilities.handleErrors(invController.buildManagement))
 
 //Adding classification form//

@@ -26,8 +26,8 @@ router.get('/',
     utilities.checkLogin,
     utilities.handleErrors(accountCtrl.buildAccountManagement))
 
-router.get('/account/update/:account_id', accountCtrl.buildUpdate);
-router.post('/account/update', accountCtrl.updateAccount);    
+router.get('/update/:account_id', accountCtrl.buildUpdate);
+router.post('/update', accountCtrl.updateAccount);    
 
 //logout process//
 router.get("/logout", utilities.handleErrors(accountCtrl.accountLogout))

@@ -133,7 +133,7 @@ async function buildUpdate(req, res, next) {
   const accountDetails = await accountModel.getAccountById(req.params.account_id);
   const {account_id, account_firstname, account_lastname, account_email} = accountDetails;
   res.render("account/update", {
-    title: "Update",
+    title: "Update Your Account Details",
     nav,
     errors: null,
     account_id,
@@ -207,7 +207,7 @@ async function updatePassword(req, res) {
   
   let hashedPassword;
   try {
-    // regular password and cost (salt is generated automatically)
+    
     hashedPassword = await bcrypt.hashSync(account_password, 10);
   } catch (error) {
     req.flash(
