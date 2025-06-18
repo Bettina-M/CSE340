@@ -72,6 +72,9 @@ app.use("/inv", inventoryRoute)
 //Account Route
 app.use("/account", accountRoute)
 
+//search Route
+
+
 //File Not Found Route
 app.use(async(req, res, next) =>{
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})

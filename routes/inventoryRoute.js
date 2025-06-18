@@ -47,6 +47,10 @@ router.get('/delete/:inv_id',utilities.handleErrors(invController.deleteInventor
 
 router.post('/delete',utilities.handleErrors(invController.confirmDelete))
 
+router.post("/search", utilities.handleErrors(invController.searchResults))
+router.route("/search")
+  .get((req, res) => res.render("search-form")) // Show search form
+  .post(utilities.handleErrors(invController.searchResults)); // Handle search
 
 
 module.exports = router;

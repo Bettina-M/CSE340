@@ -333,6 +333,27 @@ padding: 10px;
   box-shadow: 2px 2px #354f52;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.search-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 /*small screen view*/
 
 @media only screen and (max-width: 640px){

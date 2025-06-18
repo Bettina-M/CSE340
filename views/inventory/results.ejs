@@ -1,0 +1,11 @@
+<h2>Search Results for "<%= searchTerm %>"</h2>
+
+<% if (results.length > 0) { %>
+  <ul>
+    <% results.forEach(vehicle => { %>
+      <li><%= vehicle.inv_year %> <%= vehicle.inv_make %> <%= vehicle.inv_model %></li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No matching vehicles found.</p>
+<% } %>

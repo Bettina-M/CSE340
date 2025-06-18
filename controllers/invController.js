@@ -312,4 +312,26 @@ invCont.confirmDelete = async function (req, res, next) {
   }
   }
 
+  invCont.searchResults = async function (req, res) {
+  const { searchTerm } = req.body
+  try {
+    let nav = await utilities.getNav()
+    const results = await invModel.searchInventory(searchTerm)
+    res.render("inventory/results", {
+      title: "Search Results",
+      nav,
+      searchTerm,
+      results
+    })
+  } catch (error) {
+    res.render("inventory/results", {
+      title: "Search Results",
+      nav,
+      searchTerm,
+      results: [],
+      error: "An error occurred while searching."
+    })
+  }
+}
+
 module.exports = invCont

@@ -110,6 +110,22 @@ async function deleteInventoryItem(inv_id) {
     throw new Error("Delete Inventory Error");
   }
 }
+
+async function searchInventory(term) {
+  try {
+    const sql = `
+      SELECT * FROM inventory 
+      WHERE inv_make ILIKE $1 
+         OR inv_model ILIKE $1 
+         OR inv_description ILIKE $1
+    `
+    const data = await pool.query(sql, [`%${term}%`])
+    return data.rows
+  } catch (error) {
+    console.error("Search error:", error)
+    return []
+  }
+}
 module.exports = {getClassifications, 
   getInventoryByClassificationId,
   getVehicleId, 
@@ -117,4 +133,5 @@ module.exports = {getClassifications,
   addInventory,
   getInventoryById, 
   updateInventory,
-  deleteInventoryItem};
+  deleteInventoryItem,
+  searchInventory};
